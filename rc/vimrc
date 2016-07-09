@@ -1,0 +1,153 @@
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+
+" Color schemes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'chriskempson/base16-vim'
+call vundle#end()
+
+colorscheme solarized
+if has('gui_running')
+    set background=light
+	if has('gui_macvim')
+		set guifont=Inconsolata:h14
+	else
+		set guifont=Inconsolata\ 12
+	endif
+else
+    set background=dark
+endif
+
+filetype plugin indent on
+syntax on
+set autoindent
+set nocompatible
+set ruler
+set scrolloff=4
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=longest:list,full
+set cursorline
+set ttyfast
+set backspace=indent,eol,start
+set laststatus=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set relativenumber
+set linespace=5
+
+let mapleader = ","
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
+" Text formatting
+set wrap
+set textwidth=120
+set colorcolumn=120
+set formatoptions=qnmM1jtc
+" r: comment after enter, q: allow formatting with gq, n: recognize lists
+" m: break multi-byte characters, M: no space after multi-byte char when joining lines
+" 1: don't break afer one-letter word, j: remove comment leader when joining lines
+" tc: format text and comments
+" -> :help fo-table
+
+" Tab length
+if (&filetype == 'html' || &filetype == 'xhtml')
+	let tablength = 2
+else
+	let tablength = 4
+endif
+execute "set tabstop=".tablength
+execute "set shiftwidth=".tablength
+execute "set softtabstop=".tablength
+
+
+" Show invisibles
+set listchars=tab:»\ ,eol:¬,nbsp:•
+nnoremap <leader>l :set list!<cr>
+
+" Line break at cursor
+nnoremap <return> i<cr><esc>
+
+" Fold tag
+nnoremap <leader>ft Vatzf
+
+" Splits
+set splitbelow
+set splitright
+set winminheight=0
+nnoremap <leader>wv <C-w>v<C-w>l
+nnoremap <leader>ws <C-w>s<C-w>j
+nnoremap <leader>wr <C-w>r
+nnoremap <leader>s <C-w>h
+nnoremap <leader>t <C-w>l
+nnoremap <leader>n <C-w>j
+nnoremap <leader>r <C-w>k
+nnoremap <leader>_ <C-w>_
+nnoremap <leader>\| <C-w>\|
+nnoremap <leader>= <C-w>=
+nnoremap <leader>N <C-w>j<C-w>_
+nnoremap <leader>R <C-w>k<C-w>_
+
+" Exit to normal mode
+inoremap jj <esc>
+inoremap … <esc>
+
+" Open .vimrc
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Disable help key
+inoremap <f1> <esc>
+nnoremap <f1> <esc>
+vnoremap <f1> <esc>
+
+" Anpassungen für Neo
+no s h
+no h s
+no n j
+no j n
+no r k
+no k r
+no t l
+no l t
+
+no S H
+no H S
+no N J
+no J N
+no R K
+no K R
+no T L
+no L T
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Emmet customization
+autocmd FileType html,xhtml,css source ./emmet_custom
