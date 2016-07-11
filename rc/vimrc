@@ -71,7 +71,7 @@ set formatoptions=qnmM1jtc
 " -> :help fo-table
 
 " Tab length
-if (&filetype == 'html' || &filetype == 'xhtml')
+if (&filetype == 'html' || &filetype == 'xhtml' || &filetype == 'php')
 	let tablength = 2
 else
 	let tablength = 4
@@ -150,4 +150,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Emmet customization
-autocmd FileType html,xhtml,css source ~/.vim/rc/emmet_custom
+autocmd FileType html,xhtml,css,php source ~/.vim/rc/emmet_custom
