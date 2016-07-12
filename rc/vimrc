@@ -10,6 +10,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'tmhedberg/matchit'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
