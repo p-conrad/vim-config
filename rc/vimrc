@@ -8,6 +8,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 
 " Color schemes
