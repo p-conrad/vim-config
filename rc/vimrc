@@ -147,3 +147,7 @@ let g:syntastic_check_on_wq = 0
 
 " Emmet customization
 autocmd FileType html,xhtml,css,php source ~/.vim/rc/emmet_custom
+
+"Sessions
+let g:session_autosave = 'no'
+let g:session_command_aliases = 1
