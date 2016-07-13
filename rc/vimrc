@@ -11,6 +11,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'tmhedberg/matchit'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
