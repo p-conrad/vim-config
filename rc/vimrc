@@ -74,15 +74,8 @@ set formatoptions=qnmM1jtc
 " -> :help fo-table
 
 " Tab length
-if (&filetype == 'html' || &filetype == 'xhtml' || &filetype == 'php')
-	let tablength = 2
-else
-	let tablength = 4
-endif
-execute "set tabstop=".tablength
-execute "set shiftwidth=".tablength
-execute "set softtabstop=".tablength
-
+set tabstop=4 shiftwidth=4
+autocmd FileType html,xhtml,php setlocal tabstop=2 shiftwidth=2
 
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
