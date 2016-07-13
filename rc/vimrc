@@ -21,6 +21,8 @@ call vundle#end()
 colorscheme solarized
 if has('gui_running')
     set background=light
+	set guioptions-=r
+	set guioptions-=T
 	if has('gui_macvim')
 		set guifont=Inconsolata:h14
 	else
