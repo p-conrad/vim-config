@@ -111,6 +111,7 @@ nnoremap <leader>R <C-w>k<C-w>_
 " Exit to normal mode
 inoremap jj <esc>
 inoremap … <esc>
+inoremap <leader><leader> <esc>
 
 " Open .vimrc
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -119,6 +120,13 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap <f1> <esc>
 nnoremap <f1> <esc>
 vnoremap <f1> <esc>
+
+" Paste stuff directly from insert mode
+inoremap <leader>p <esc>p
+inoremap <leader>sp <esc>"*p
+
+" 'Stamp' the word below the cursor with a previously yanked text
+nnoremap S daw"0p
 
 " Anpassungen für Neo
 no s h
