@@ -81,7 +81,7 @@ set formatoptions=qnmM1jtc
 
 " Tab length
 set tabstop=4 shiftwidth=4
-autocmd FileType html,xhtml,php setlocal tabstop=2 shiftwidth=2
+autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
 
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
@@ -160,7 +160,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Emmet customization
-autocmd FileType html,xhtml,css,php source ~/.vim/rc/emmet_custom
+autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
 
 "Sessions
 let g:session_autosave = 'no'
