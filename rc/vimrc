@@ -14,6 +14,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
