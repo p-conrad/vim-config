@@ -15,6 +15,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'itchyny/vim-haskell-indent'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -83,6 +84,7 @@ set formatoptions=qnmM1jtc
 " Tab length
 set tabstop=4 shiftwidth=4
 autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
+autocmd FileType haskell setlocal expandtab
 
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
