@@ -16,6 +16,8 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'itchyny/vim-haskell-indent'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -133,6 +135,19 @@ inoremap <leader>sp <esc>"*p
 
 " 'Stamp' the word below the cursor with a previously yanked text
 nnoremap S daw"0p
+
+" Ctrl-P setup
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['htdocs']
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+
+nnoremap <leader>pp :CtrlP<cr>
+nnoremap <leader>pb :CtrlPBuffer<cr>
+nnoremap <leader>pm :CtrlPMixed<cr>
+nnoremap <leader>pf :CtrlPFunky<cr>
+nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Anpassungen für Neo
 no s h
