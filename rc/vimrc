@@ -133,6 +133,10 @@ vnoremap <f1> <esc>
 inoremap <leader>p <esc>p
 inoremap <leader>sp <esc>"*p
 
+" Easily jump to the beginning/end of a line and continue editing there
+inoremap <leader>E <esc>A
+inoremap <leader>A <esc>I
+
 " 'Stamp' the word below the cursor with a previously yanked text
 nnoremap S daw"0p
 
