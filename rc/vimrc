@@ -72,6 +72,9 @@ set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
 
+" Press the leader key twice to use the ',' command
+nnoremap <leader><leader> ,
+
 " Text formatting
 set wrap
 set textwidth=120
@@ -98,9 +101,12 @@ nnoremap <return> i<cr><esc>
 " Fold tag
 nnoremap <leader>ft Vatzf
 
-" Indentation for tags or lines
-nnoremap <leader>il V=
-nnoremap <leader>it vat=
+" Indentation for tags
+nnoremap <leader>it vit=
+nnoremap <leader>iT vat=
+
+" Open/Close all folds
+nnoremap <space> za
 
 " Splits
 set splitbelow
@@ -140,9 +146,16 @@ vnoremap <f1> <esc>
 inoremap <leader>p <esc>p
 inoremap <leader>sp <esc>"*p
 
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
 " Easily jump to the beginning/end of a line and continue editing there
 inoremap <leader>E <esc>A
-inoremap <leader>A <esc>I
+inoremap <leader>B <esc>I
+
+" highlight last inserted text
+nnoremap gV `[v`]
 
 " 'Stamp' the word below the cursor with a previously yanked text
 nnoremap S daw"0p
@@ -160,12 +173,12 @@ nnoremap <leader>pm :CtrlPMixed<cr>
 nnoremap <leader>pf :CtrlPFunky<cr>
 nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
-" Anpassungen für Neo
+" Map adjustments for the Neo 2 keyboard layout (including vertical movement by visual line)
 no s h
 no h s
-no n j
+no n gj
 no j n
-no r k
+no r gk
 no k r
 no t l
 no l t
