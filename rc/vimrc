@@ -76,7 +76,7 @@ nnoremap <leader><space> :noh<cr>
 set wrap
 set textwidth=120
 set colorcolumn=120
-set formatoptions=qnmM1jtc
+set formatoptions=qnmM1jc
 " r: comment after enter, q: allow formatting with gq, n: recognize lists
 " m: break multi-byte characters, M: no space after multi-byte char when joining lines
 " 1: don't break afer one-letter word, j: remove comment leader when joining lines
