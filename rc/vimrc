@@ -98,6 +98,10 @@ nnoremap <return> i<cr><esc>
 " Fold tag
 nnoremap <leader>ft Vatzf
 
+" Indentation for tags or lines
+nnoremap <leader>il V=
+nnoremap <leader>it vat=
+
 " Splits
 set splitbelow
 set splitright
@@ -119,6 +123,9 @@ nnoremap <leader>R <C-w>k<C-w>_
 inoremap jj <esc>
 inoremap … <esc>
 inoremap <leader><leader> <esc>
+
+" Open ex mode (for OS X)
+nnoremap <leader>x :
 
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
