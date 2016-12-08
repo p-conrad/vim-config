@@ -59,6 +59,10 @@ set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set relativenumber
 set linespace=2
 
+" Always switch to the directory of the current file
+set autochdir
+" autocmd BufEnter * silent! lcd %:p:h
+
 let mapleader = ","
 
 " Searching
