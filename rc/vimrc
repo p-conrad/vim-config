@@ -19,6 +19,7 @@ Plugin 'itchyny/vim-haskell-indent'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
