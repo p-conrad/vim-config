@@ -18,6 +18,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'sjl/gundo.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -176,6 +177,9 @@ nnoremap <leader>pb :CtrlPBuffer<cr>
 nnoremap <leader>pm :CtrlPMixed<cr>
 nnoremap <leader>pf :CtrlPFunky<cr>
 nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+
+" toggle undo
+nnoremap <leader>u :GundoToggle<cr>
 
 " Map adjustments for the Neo 2 keyboard layout (including vertical movement by visual line)
 no s h
