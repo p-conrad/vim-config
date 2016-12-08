@@ -139,7 +139,7 @@ nnoremap <leader>x :
 
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>eV <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>eV :vsp $MYVIMRC<cr>
 
 " Disable help key
 inoremap <f1> <esc>
