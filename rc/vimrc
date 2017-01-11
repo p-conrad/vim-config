@@ -185,6 +185,14 @@ nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 " toggle undo
 nnoremap <leader>u :GundoToggle<cr>
 
+" Git commands
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gd :Gdiff<cr>
+
 " Map adjustments for the Neo 2 keyboard layout (including vertical movement by visual line)
 no s h
 no h s
