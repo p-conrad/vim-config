@@ -193,12 +193,12 @@ nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gd :Gdiff<cr>
 
-" Map adjustments for the Neo 2 keyboard layout (including vertical movement by visual line)
+" Map adjustments for the Neo 2 keyboard layout
 no s h
 no h s
-no n gj
+no n j
 no j n
-no r gk
+no r k
 no k r
 no t l
 no l t
