@@ -150,8 +150,8 @@ nnoremap <f1> <esc>
 vnoremap <f1> <esc>
 
 " Paste stuff directly from insert mode
-inoremap <leader>p <esc>p
-inoremap <leader>sp <esc>"*p
+inoremap <leader>p <esc>pa
+inoremap <leader>sp <esc>"*pa
 
 " move to beginning/end of line
 nnoremap B ^
