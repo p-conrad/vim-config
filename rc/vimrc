@@ -21,6 +21,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/EasyHtml.vim'
+Plugin 'danro/rename.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
