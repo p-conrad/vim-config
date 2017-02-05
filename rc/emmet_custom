@@ -13,10 +13,10 @@ imap <buffer> <leader>eN <plug>(emmet-move-prev)
 nmap <buffer> <leader>ei <plug>(emmet-image-size)
 imap <buffer> <leader>ei <plug>(emmet-image-size)
 nmap <buffer> <leader>e/ <plug>(emmet-toggle-comment)
+imap <buffer> <leader>e/ <plug>(emmet-toggle-comment)
 nmap <buffer> <leader>ej <plug>(emmet-split-join-tag)
-nmap <buffer> <leader>ek <plug>(emmet-remove-tag)
 nmap <buffer> <leader>ea <plug>(emmet-anchorize-url)
-nmap <buffer> <leader>em <plug>(emmet-merge-lines)
+vmap <buffer> <leader>em <plug>(emmet-merge-lines)
 nmap <buffer> <leader>ec <plug>(emmet-code-pretty)
 
 " vim:filetype=vim
