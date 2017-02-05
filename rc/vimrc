@@ -26,12 +26,13 @@ Plugin 'danro/rename.vim'
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plugin 'chriskempson/base16-vim'
+Plugin 'rakr/vim-one'
+Plugin 'crusoexia/vim-monokai'
 call vundle#end()
 
-colorscheme solarized
+colorscheme one
+set background=dark
 if has('gui_running')
-    set background=light
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
@@ -40,8 +41,6 @@ if has('gui_running')
 	else
 		set guifont=Inconsolata\ 12
 	endif
-else
-    set background=dark
 endif
 
 filetype plugin indent on
