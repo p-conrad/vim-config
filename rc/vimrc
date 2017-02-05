@@ -113,8 +113,8 @@ nnoremap <leader>ft Vatzf
 nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
 
-" Open/Close all folds
-nnoremap <space> za
+" Open/Close folds
+nnoremap <space> zo
 
 " Splits
 set splitbelow
@@ -154,9 +154,8 @@ nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<c
 " Exit to normal mode
 inoremap jj <esc>
 inoremap … <esc>
-inoremap <leader><leader> <esc>
 
-" Open ex mode (for OS X)
+" Open ex mode
 nnoremap <leader>x :
 
 " Open .vimrc
@@ -170,21 +169,17 @@ vnoremap <f1> <esc>
 
 " Paste stuff directly from insert mode
 inoremap <leader>p <esc>pa
+inoremap <leader>P <esc>"0pa
 inoremap <leader>sp <esc>"*pa
 
-" move to beginning/end of line
+" Jump to the beginning/end of a line (and optionally continue editing there)
 nnoremap B ^
 nnoremap E $
-
-" Easily jump to the beginning/end of a line and continue editing there
-inoremap <leader>E <esc>A
 inoremap <leader>B <esc>I
+inoremap <leader>E <esc>A
 
 " highlight last inserted text
 nnoremap gV `[v`]
-
-" 'Stamp' the word below the cursor with a previously yanked text
-nnoremap S daw"0p
 
 " tee hack to save a file even when it's opened read-only (e.g. forgetting sudo)
 cmap w!! w !sudo tee >/dev/null %
@@ -198,6 +193,7 @@ let g:ctrlp_funky_syntax_highlight = 1
 
 nnoremap <leader>pp :CtrlP<cr>
 nnoremap <leader>pb :CtrlPBuffer<cr>
+nnoremap <C-b> :CtrlPBuffer<cr>
 nnoremap <leader>pm :CtrlPMixed<cr>
 nnoremap <leader>pf :CtrlPFunky<cr>
 nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
