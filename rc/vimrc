@@ -108,9 +108,11 @@ nnoremap <return> i<cr><esc>
 " Fold tag
 nnoremap <leader>ft Vatzf
 
-" Indentation for tags
+" Indentation
 nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
+nnoremap <tab> ==
+nnoremap <C-tab> gg=G
 
 " Open/Close folds
 nnoremap <space> zo
@@ -179,6 +181,9 @@ inoremap <leader>E <esc>A
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
+" Split a tag into multiple lines
+inoremap <S-cr> <cr><esc>O
 
 " tee hack to save a file even when it's opened read-only (e.g. forgetting sudo)
 cmap w!! w !sudo tee >/dev/null %
