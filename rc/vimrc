@@ -157,7 +157,6 @@ inoremap … <esc>
 
 " Open ex mode
 nnoremap <leader>x :
-nnoremap <C-x> :
 
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
