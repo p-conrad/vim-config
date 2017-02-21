@@ -77,6 +77,8 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+" Search for highlighted word (will not work with backspaces)
+vnoremap // y/\V<C-R>"<CR>
 
 " Press the leader key twice to use the ',' command
 nnoremap <leader><leader> ,
