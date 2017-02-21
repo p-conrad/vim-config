@@ -114,7 +114,7 @@ nnoremap <tab> ==
 nnoremap <C-tab> gg=G
 
 " Open/Close folds
-nnoremap <space> zo
+nnoremap <space> za
 
 " Splits
 set splitbelow
