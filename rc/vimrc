@@ -29,9 +29,9 @@ Plugin 'rakr/vim-one'
 Plugin 'crusoexia/vim-monokai'
 call vundle#end()
 
-colorscheme one
 set background=dark
 if has('gui_running')
+	colorscheme one
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
@@ -40,6 +40,8 @@ if has('gui_running')
 	else
 		set guifont=Inconsolata\ 12
 	endif
+else
+	colorscheme Tomorrow-Night
 endif
 
 filetype plugin indent on
