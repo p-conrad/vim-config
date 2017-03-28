@@ -79,6 +79,8 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 " Search for highlighted text (will not work with backspaces)
 vnoremap // y/\V<C-R>"<CR>
+" Search for copied text
+nnoremap // /<C-R>0<cr>
 
 " Press the leader key twice to use the ',' command
 nnoremap <leader><leader> ,
