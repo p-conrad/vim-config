@@ -95,6 +95,11 @@ set formatoptions=qnmM1jc
 " 1: don't break afer one-letter word, j: remove comment leader when joining lines
 " tc: format text and comments
 " -> :help fo-table
+set linebreak
+set breakat+=>
+let &showbreak='>> '
+set breakindent
+set breakindentopt=shift:-3
 
 " Tab length
 set tabstop=4 shiftwidth=4
