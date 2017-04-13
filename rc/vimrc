@@ -3,7 +3,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
@@ -57,7 +57,7 @@ set cursorline
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set statusline=%.25F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L\ %P
+set statusline=%.25F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
 set relativenumber
 set linespace=2
 
@@ -221,6 +221,15 @@ nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gd :Gdiff<cr>
 
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+nnoremap <leader>sc :SyntasticCheck<cr>
+nnoremap <leader>sr :SyntasticReset<cr>
+nnoremap <leader>st :SyntasticToggleMode<cr>
+
 " Map adjustments for the Neo 2 keyboard layout
 no s h
 no h s
@@ -239,16 +248,6 @@ no R K
 no K R
 no T L
 no L T
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " Emmet customization
 autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
