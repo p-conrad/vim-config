@@ -221,6 +221,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers = ['htmlhint', 'tidy']
+let g:syntastic_html_htmlhint_args = '--config ~/.vim/rc/htmlhintrc'
+let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute']
+autocmd BufNewFile,BufRead htmlhintrc set filetype=json
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
