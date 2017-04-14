@@ -161,7 +161,6 @@ nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 3/5)<cr
 nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<cr>
 
 " Exit to normal mode
-inoremap jj <esc>
 inoremap … <esc>
 
 " Open ex mode
@@ -181,11 +180,9 @@ inoremap <leader>p <esc>pa
 inoremap <leader>P <esc>"0pa
 inoremap <leader>sp <esc>"*pa
 
-" Jump to the beginning/end of a line (and optionally continue editing there)
+" Jump to the beginning/end of a line
 nnoremap B ^
 nnoremap E $
-inoremap <leader>B <esc>I
-inoremap <leader>E <esc>A
 
 " highlight last inserted text
 nnoremap gV `[v`]
@@ -203,8 +200,6 @@ let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
-nnoremap <leader>pp :CtrlP<cr>
-nnoremap <leader>pb :CtrlPBuffer<cr>
 nnoremap <C-b> :CtrlPBuffer<cr>
 nnoremap <leader>pm :CtrlPMixed<cr>
 nnoremap <leader>pf :CtrlPFunky<cr>
