@@ -1,6 +1,5 @@
 imap <buffer> <leader><leader> <plug>(emmet-expand-abbr)
 vmap <buffer> <leader><leader> <plug>(emmet-expand-abbr)
-imap <buffer> <C-x> <plug>(emmet-expand-abbr)
 vmap <buffer> <leader>ew <plug>(emmet-expand-abbr)
 nmap <buffer> <leader>eu <plug>(emmet-update-tag)
 nmap <buffer> <leader>ed <plug>(emmet-balance-tag-inward)

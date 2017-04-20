@@ -3,7 +3,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
@@ -59,7 +59,7 @@ set cursorline
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set statusline=%.25F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L\ %P
+set statusline=%.25F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
 set relativenumber
 set linespace=2
 
@@ -81,6 +81,8 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 " Search for highlighted text (will not work with backspaces)
 vnoremap // y/\V<C-R>"<CR>
+" Search for copied text
+nnoremap // /<C-R>0<cr>
 
 " Press the leader key twice to use the ',' command
 nnoremap <leader><leader> ,
@@ -95,6 +97,11 @@ set formatoptions=qnmM1jc
 " 1: don't break afer one-letter word, j: remove comment leader when joining lines
 " tc: format text and comments
 " -> :help fo-table
+set linebreak
+set breakat+=>
+let &showbreak='>> '
+set breakindent
+set breakindentopt=shift:-3
 
 " Tab length
 set tabstop=4 shiftwidth=4
@@ -156,7 +163,6 @@ nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 3/5)<cr
 nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<cr>
 
 " Exit to normal mode
-inoremap jj <esc>
 inoremap … <esc>
 
 " Open ex mode
@@ -176,11 +182,9 @@ inoremap <leader>p <esc>pa
 inoremap <leader>P <esc>"0pa
 inoremap <leader>sp <esc>"*pa
 
-" Jump to the beginning/end of a line (and optionally continue editing there)
+" Jump to the beginning/end of a line
 nnoremap B ^
 nnoremap E $
-inoremap <leader>B <esc>I
-inoremap <leader>E <esc>A
 
 " highlight last inserted text
 nnoremap gV `[v`]
@@ -198,8 +202,6 @@ let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
-nnoremap <leader>pp :CtrlP<cr>
-nnoremap <leader>pb :CtrlPBuffer<cr>
 nnoremap <C-b> :CtrlPBuffer<cr>
 nnoremap <leader>pm :CtrlPMixed<cr>
 nnoremap <leader>pf :CtrlPFunky<cr>
@@ -215,6 +217,20 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gd :Gdiff<cr>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers = ['htmlhint', 'tidy']
+let g:syntastic_html_htmlhint_args = '--config ~/.vim/rc/htmlhintrc'
+let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute']
+let g:syntastic_css_csslint_args = '--ignore="box-model,box-sizing,universal-selector"'
+autocmd BufNewFile,BufRead htmlhintrc set filetype=json
+nnoremap <leader>sc :SyntasticCheck<cr>
+nnoremap <leader>sr :SyntasticReset<cr>
+nnoremap <leader>st :SyntasticToggleMode<cr>
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
@@ -234,16 +250,6 @@ no R K
 no K R
 no T L
 no L T
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " Emmet customization
 autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
