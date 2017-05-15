@@ -108,6 +108,9 @@ set tabstop=4 shiftwidth=4
 autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
 autocmd FileType haskell setlocal expandtab
 
+" LaTeX settings
+autocmd FileType plaintex set textwidth=100
+
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
 nnoremap <leader>l :set list!<cr>
