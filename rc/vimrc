@@ -12,7 +12,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'tmhedberg/matchit'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -45,6 +45,7 @@ else
 endif
 
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 syntax on
 set autoindent
 set nocompatible
@@ -234,6 +235,18 @@ autocmd BufNewFile,BufRead htmlhintrc set filetype=json
 nnoremap <leader>sc :SyntasticCheck<cr>
 nnoremap <leader>sr :SyntasticReset<cr>
 nnoremap <leader>st :SyntasticToggleMode<cr>
+
+" Neocomplete
+let g:cp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
+" Tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
