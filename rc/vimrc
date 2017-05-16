@@ -109,7 +109,7 @@ autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
 autocmd FileType haskell setlocal expandtab
 
 " LaTeX settings
-autocmd FileType plaintex set textwidth=100
+autocmd FileType plaintex,tex set textwidth=100 | set formatoptions+=t
 
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
