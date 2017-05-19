@@ -186,6 +186,12 @@ inoremap <leader>p <esc>pa
 inoremap <leader>P <esc>"0pa
 inoremap <leader>sp <esc>"*pa
 
+" Paste last yanked text
+nnoremap gp "0p
+
+" Cut without yanking to the buffer
+nnoremap gx "_x
+
 " Jump to the beginning/end of a line
 nnoremap B ^
 nnoremap E $
