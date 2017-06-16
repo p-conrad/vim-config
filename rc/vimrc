@@ -19,6 +19,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'danro/rename.vim'
 Plugin 'chaoren/vim-wordmotion'
+Plugin 'othree/xml.vim'
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -67,6 +68,7 @@ set autochdir
 " autocmd BufEnter * silent! lcd %:p:h
 
 let mapleader = ","
+let maplocalleader = "\\"
 
 " Searching
 nnoremap / /\v
