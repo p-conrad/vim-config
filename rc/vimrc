@@ -125,7 +125,7 @@ nnoremap <leader>ft Vatzf
 " Indentation
 nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
-nnoremap <tab> ==
+nnoremap <leader><tab> ==
 nnoremap <C-tab> gg=G
 
 " Open/Close folds
