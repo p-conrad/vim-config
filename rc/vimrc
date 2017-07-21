@@ -192,10 +192,6 @@ nnoremap gp "0p
 " Cut without yanking to the buffer
 nnoremap gx "_x
 
-" Jump to the beginning/end of a line
-nnoremap B ^
-nnoremap E $
-
 " highlight last inserted text
 nnoremap gV `[v`]
 
