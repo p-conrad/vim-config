@@ -1,34 +1,30 @@
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'itchyny/vim-haskell-indent'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'danro/rename.vim'
-Plugin 'chaoren/vim-wordmotion'
-Plugin 'othree/xml.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-line'
+call plug#begin('~/.vim/bundle')
+Plug 'vim-syntastic/syntastic'
+Plug 'mattn/emmet-vim', { 'for': 'html,xhtml,css,php,eruby' }
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'Shougo/neocomplete.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'danro/rename.vim'
+Plug 'chaoren/vim-wordmotion'
+Plug 'othree/xml.vim' { 'for': 'html,xhtml,php,eruby' }
+Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-line'
 
 " Color schemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Plugin 'rakr/vim-one'
-Plugin 'crusoexia/vim-monokai'
-call vundle#end()
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plug 'rakr/vim-one'
+Plug 'crusoexia/vim-monokai'
+call plug#end()
 
 set background=dark
 if has('gui_running')
