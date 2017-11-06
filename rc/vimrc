@@ -267,6 +267,9 @@ no K R
 no T L
 no L T
 
+no gn gj
+no gr gk
+
 " Emmet customization
 autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
 
