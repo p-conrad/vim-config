@@ -273,6 +273,9 @@ no gr gk
 " Emmet customization
 autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
 
+" Hashbang
+source ~/.vim/rc/hashbang
+
 "Sessions
 let g:session_autosave = 'no'
 let g:session_command_aliases = 1
