@@ -126,6 +126,7 @@ nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
 nnoremap <leader><tab> ==
 nnoremap <C-tab> gg=G
+set cinoptions+={-1s}
 
 " Open/Close folds
 nnoremap <space> za
