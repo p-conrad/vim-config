@@ -236,6 +236,11 @@ nnoremap <M-s>c :SyntasticCheck<cr>
 nnoremap <M-s>r :SyntasticReset<cr>
 nnoremap <M-s>t :SyntasticToggleMode<cr>
 
+" Session Management
+nnoremap <M-s>o :SessionOpen 
+nnoremap <M-s>s :SessionSave 
+nnoremap <M-s>c :SessionClose<cr>
+
 " Neocomplete
 let g:cp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
