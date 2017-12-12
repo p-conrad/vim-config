@@ -126,7 +126,6 @@ nnoremap <leader>ft Vatzf
 " Indentation
 nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
-nnoremap <leader><tab> ==
 nnoremap <C-tab> gg=G
 set cinoptions+={-1s}
 
@@ -137,9 +136,7 @@ nnoremap <space> za
 set splitbelow
 set splitright
 set winminheight=0
-nnoremap <leader>wv <C-w>v<C-w>l
-nnoremap <leader>ws <C-w>s<C-w>j
-nnoremap <leader>wr <C-w>r
+nnoremap <M-r> <C-w>r
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>\| <C-w>\|
 nnoremap <leader>= <C-w>=
@@ -149,30 +146,23 @@ nnoremap <C-s> <C-w>h
 nnoremap <C-t> <C-w>l
 nnoremap <C-n> <C-w>j
 nnoremap <C-r> <C-w>k
-nnoremap <leader>s <C-w>h
-nnoremap <leader>t <C-w>l
-nnoremap <leader>n <C-w>j
-nnoremap <leader>r <C-w>k
-nnoremap <leader>N <C-w>j<C-w>_
-nnoremap <leader>R <C-w>k<C-w>_
+nnoremap <C-N> <C-w>j<C-w>_
+nnoremap <C-R> <C-w>k<C-w>_
 
 " Remap 'redo' since we are using <C-r> for navigation now
 nnoremap <C-j> <C-r>
 
 " Resizing splits
-nnoremap <silent> <A-Left> :vertical resize -5<cr>
-nnoremap <silent> <A-Right> :vertical resize +5<cr>
-nnoremap <silent> <A-Up> :resize +5<cr>
-nnoremap <silent> <A-Down> :resize -5<cr>
+nnoremap <silent> <M-Left> :vertical resize -5<cr>
+nnoremap <silent> <M-Right> :vertical resize +5<cr>
+nnoremap <silent> <M-Up> :resize +5<cr>
+nnoremap <silent> <M-Down> :resize -5<cr>
 nnoremap <silent> <leader>2 <C-w>h:exec "vertical resize " . (&columns * 1/2)<cr>
 nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 3/5)<cr>
 nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<cr>
 
 " Exit to normal mode
 inoremap … <esc>
-
-" Open ex mode
-nnoremap <leader>x :
 
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
@@ -211,20 +201,19 @@ let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
 nnoremap <C-b> :CtrlPBuffer<cr>
-nnoremap <leader>pm :CtrlPMixed<cr>
-nnoremap <leader>pf :CtrlPFunky<cr>
-nnoremap <Leader>pF :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+nnoremap <C-f> :CtrlPFunky<cr>
+nnoremap <M-f> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " toggle undo
-nnoremap <leader>u :GundoToggle<cr>
+nnoremap <M-u> :GundoToggle<cr>
 
 " Git commands
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>gl :Glog<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gd :Gdiff<cr>
+nnoremap <M-g>s :Gstatus<cr>
+nnoremap <M-g>c :Gcommit<cr>
+nnoremap <M-g>p :Gpush<cr>
+nnoremap <M-g>l :Glog<cr>
+nnoremap <M-g>b :Gblame<cr>
+nnoremap <M-g>d :Gdiff<cr>
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -236,9 +225,9 @@ let g:syntastic_html_htmlhint_args = '--config ~/.vim/rc/htmlhintrc'
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute']
 let g:syntastic_css_csslint_args = '--ignore="box-model,box-sizing,universal-selector,adjoining-classes"'
 autocmd BufNewFile,BufRead htmlhintrc set filetype=json
-nnoremap <leader>sc :SyntasticCheck<cr>
-nnoremap <leader>sr :SyntasticReset<cr>
-nnoremap <leader>st :SyntasticToggleMode<cr>
+nnoremap <M-s>c :SyntasticCheck<cr>
+nnoremap <M-s>r :SyntasticReset<cr>
+nnoremap <M-s>t :SyntasticToggleMode<cr>
 
 " Neocomplete
 let g:cp_enableAtStartup = 0
