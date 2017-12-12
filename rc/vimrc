@@ -35,7 +35,7 @@ if has('gui_running')
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
-	set guioptions-=M
+	set guioptions-=m
 	nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 	if has('gui_macvim')
 		set guifont=Input:h12
