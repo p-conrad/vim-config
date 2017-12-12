@@ -161,6 +161,9 @@ nnoremap <silent> <leader>2 <C-w>h:exec "vertical resize " . (&columns * 1/2)<cr
 nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 3/5)<cr>
 nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<cr>
 
+" Close buffer
+nnoremap <M-q> :q<cr>
+
 " Exit to normal mode
 inoremap … <esc>
 
@@ -178,14 +181,16 @@ inoremap <leader>p <esc>pa
 inoremap <leader>P <esc>"0pa
 inoremap <leader>sp <esc>"*pa
 
-" Paste last yanked text
+" Paste last yanked text, cut without yanking to the buffer
 nnoremap gp "0p
-
-" Cut without yanking to the buffer
 nnoremap gx "_x
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
+" Open quickfix/location list
+nnoremap <M-c> :copen<cr>
+nnoremap <M-l> :lopen<cr>
 
 " Split a tag into multiple lines
 inoremap <S-cr> <cr><esc>O
