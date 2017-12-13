@@ -200,6 +200,9 @@ inoremap <S-cr> <cr><esc>O
 " tee hack to save a file even when it's opened read-only (e.g. forgetting sudo)
 cmap w!! w !sudo tee >/dev/null %
 
+" prevent accidentally writing a backtick when trying to save
+cmap w´ w
+
 " Ctrl-P setup
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['htdocs']
