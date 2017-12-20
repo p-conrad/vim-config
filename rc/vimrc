@@ -109,12 +109,12 @@ set breakindentopt=shift:-3
 
 " Tab length
 set tabstop=4 shiftwidth=4
-autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
-autocmd FileType haskell setlocal expandtab
-
-" LaTeX settings
-autocmd FileType plaintex,tex set textwidth=100 | set formatoptions+=t
-
+augroup FileTypeGroup
+	autocmd!
+	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
+	autocmd FileType haskell setlocal expandtab
+	autocmd FileType plaintex,tex set textwidth=100 | set formatoptions+=t
+augroup END
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•
 nnoremap <leader>l :set list!<cr>
@@ -299,7 +299,10 @@ no gn gj
 no gr gk
 
 " Emmet customization
-autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
+augroup EmmetSource
+	autocmd!
+	autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
+augroup END
 
 " Hashbang
 source ~/.vim/rc/hashbang
