@@ -171,6 +171,16 @@ nnoremap <leader>q :q<cr>
 " Exit to normal mode
 inoremap … <esc>
 
+" Disable IME automatically when leaving insert mode on MacVim
+" -> https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
+if has('mac')
+	let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+	augroup MyIMEGroup
+		autocmd!
+		autocmd InsertLeave * :call system(g:imeoff)
+	augroup END
+endif
+
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>eV :vsp $MYVIMRC<cr>
