@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/bundle')
 Plug 'vim-syntastic/syntastic'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -301,7 +301,7 @@ no gr gk
 " Emmet customization
 augroup EmmetSource
 	autocmd!
-	autocmd FileType html,xhtml,css,php,eruby source ~/.vim/rc/emmet_custom
+	autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/emmet_custom
 augroup END
 
 " Hashbang
