@@ -58,6 +58,7 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=longest:list,full
+set wildignore+=*/tmp/*,*.o,*.so,*.swp,*.swo,*.zip,*/node_modules/*,*/.cache/*,*/__pycache__/*,*.pyc,*.pyo
 set cursorline
 set ttyfast
 set backspace=indent,eol,start
