@@ -112,7 +112,7 @@ set breakindentopt=shift:-3
 set tabstop=4 shiftwidth=4
 augroup FileTypeGroup
 	autocmd!
-	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
+	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2 | set colorcolumn=0
 	autocmd FileType haskell setlocal expandtab
 	autocmd FileType plaintex,tex set textwidth=100 | set formatoptions+=t
 augroup END
