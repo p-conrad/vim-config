@@ -163,9 +163,11 @@ nnoremap <silent> <M-Left> :vertical resize -5<cr>
 nnoremap <silent> <M-Right> :vertical resize +5<cr>
 nnoremap <silent> <M-Up> :resize +5<cr>
 nnoremap <silent> <M-Down> :resize -5<cr>
-nnoremap <silent> <leader>2 <C-w>h:exec "vertical resize " . (&columns * 1/2)<cr>
-nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 3/5)<cr>
-nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 7/10)<cr>
+nnoremap <silent> <leader>1 <C-w>h:exec "vertical resize " . (&columns * 8/16)<cr>
+nnoremap <silent> <leader>2 <C-w>h:exec "vertical resize " . (&columns * 9/16)<cr>
+nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 10/16)<cr>
+nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 11/16)<cr>
+nnoremap <silent> <leader>5 <C-w>h:exec "vertical resize " . (&columns * 12/16)<cr>
 
 " Close buffer
 nnoremap <M-q> :q<cr>
