@@ -65,7 +65,7 @@ set cursorline
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set statusline=%.25F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
+set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
 set relativenumber
 set linespace=2
 
