@@ -67,8 +67,16 @@ set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
 set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
-set relativenumber
 set linespace=2
+
+" Hybrid line numbering including automatic toggling
+" Source: https://jeffkreeftmeijer.com/vim-number/
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " Always switch to the directory of the current file
 set autochdir
