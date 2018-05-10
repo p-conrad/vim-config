@@ -230,6 +230,9 @@ cmap w!! w !sudo tee >/dev/null %
 " prevent accidentally writing a backtick when trying to save
 cmap w´ w
 
+" delete and move one line up
+nnoremap dD ddk
+
 " Ctrl-P setup
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['htdocs']
