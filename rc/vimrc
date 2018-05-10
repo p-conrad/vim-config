@@ -42,7 +42,7 @@ if has('gui_running')
 	if has('gui_macvim')
 		set linespace=4
 		set macligatures
-		set guifont=Fira Code Regular:h12
+		set guifont=Fira\ Code\ Regular:h12
 		set expandtab
 	else
 		set linespace=2
