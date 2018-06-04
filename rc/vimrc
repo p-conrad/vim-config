@@ -15,7 +15,6 @@ Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'chaoren/vim-wordmotion'
-Plug 'othree/xml.vim', { 'for': ['html', 'xhtml', 'php', 'eruby'] }
 Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-line'
 Plug 'AndrewRadev/splitjoin.vim', { 'for': ['html', 'xhtml', 'php', 'eruby'] }
@@ -54,6 +53,7 @@ else
 endif
 
 filetype plugin indent on
+packadd! matchit
 set omnifunc=syntaxcomplete#Complete
 syntax on
 set autoindent
