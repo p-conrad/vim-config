@@ -85,7 +85,7 @@ augroup END
 set autochdir
 " autocmd BufEnter * silent! lcd %:p:h
 
-let mapleader = ","
+let mapleader = "-"
 let maplocalleader = "\\"
 
 " Searching
@@ -102,9 +102,6 @@ nnoremap <leader><space> :noh<cr>
 vnoremap // y/\V<C-R>"<CR>
 " Search for copied text
 nnoremap // /<C-R>0<cr>
-
-" Press the leader key twice to use the ',' command
-nnoremap <leader><leader> ,
 
 " Text formatting
 set wrap
