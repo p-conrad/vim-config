@@ -280,10 +280,8 @@ nnoremap <leader>st :SyntasticToggleMode<cr>
 " Session Management
 nnoremap <M-s>o :SessionOpen 
 nnoremap <M-s>s :SessionSave 
-nnoremap <M-s>c :SessionClose<cr>
 nnoremap <leader>so :SessionOpen 
 nnoremap <leader>ss :SessionSave 
-nnoremap <leader>sc :SessionClose<cr>
 
 " Neocomplete
 let g:cp_enableAtStartup = 0
