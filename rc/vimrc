@@ -17,6 +17,7 @@ Plug 'danro/rename.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-line'
+  Plug 'tkhren/vim-textobj-numeral'
 Plug 'AndrewRadev/splitjoin.vim', { 'for': ['html', 'xhtml', 'php', 'eruby'] }
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
