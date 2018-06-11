@@ -23,6 +23,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
+Plug 'ambv/black', { 'for': 'python' }
 
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
