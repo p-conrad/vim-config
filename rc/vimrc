@@ -30,11 +30,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
+Plug 'skielbasa/vim-material-monokai'
 call plug#end()
 
 set background=dark
 if has('gui_running')
-	colorscheme one
+	colorscheme material-monokai
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
