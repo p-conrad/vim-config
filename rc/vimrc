@@ -210,13 +210,13 @@ nnoremap <f1> <esc>
 vnoremap <f1> <esc>
 
 " Paste stuff directly from insert mode
-inoremap <leader>p <esc>pa
-inoremap <leader>P <esc>"0pa
-inoremap <leader>sp <esc>"*pa
+"inoremap <leader>p <esc>pa
+"inoremap <leader>P <esc>"0pa
+"inoremap <leader>sp <esc>"*pa
 
 " Paste last yanked text, cut without yanking to the buffer
 nnoremap gp "0p
-nnoremap gx "_x
+vnoremap gx "_x
 
 " highlight last inserted text
 nnoremap gV `[v`]
