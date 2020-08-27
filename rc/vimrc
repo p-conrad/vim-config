@@ -25,14 +25,13 @@ Plug 'ambv/black', { 'for': 'python' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
 call plug#end()
 
 set background=dark
 if has('gui_running')
-	colorscheme material-monokai
+	colorscheme one
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
