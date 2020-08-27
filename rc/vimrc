@@ -1,17 +1,13 @@
 call plug#begin('~/.vim/bundle')
-Plug 'vim-syntastic/syntastic'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'Shougo/neocomplete.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/vim-haskell-indent', { 'for': 'haskell' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'chaoren/vim-wordmotion'
@@ -29,6 +25,7 @@ Plug 'ambv/black', { 'for': 'python' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
 call plug#end()
@@ -61,7 +58,6 @@ set omnifunc=syntaxcomplete#Complete
 syntax on
 set t_Co=256
 set autoindent
-set nocompatible
 set ruler
 set scrolloff=2
 set showmode
@@ -74,7 +70,7 @@ set cursorline
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%{SyntasticStatuslineFlag()}%*%=%c,%l/%L\ %P
+set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%*%=%c,%l/%L\ %P
 
 " Hybrid line numbering including automatic toggling
 " Source: https://jeffkreeftmeijer.com/vim-number/
@@ -89,7 +85,7 @@ augroup END
 set autochdir
 " autocmd BufEnter * silent! lcd %:p:h
 
-let mapleader = "-"
+let mapleader = " "
 let maplocalleader = "\\"
 
 " Searching
@@ -101,7 +97,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader>h :noh<cr>
 " Search for highlighted text (will not work with backspaces)
 vnoremap // y/\V<C-R>"<CR>
 " Search for copied text
@@ -111,7 +107,7 @@ nnoremap // /<C-R>0<cr>
 set wrap
 set textwidth=120
 set colorcolumn=120
-set formatoptions=qnmM1jc
+set formatoptions=rqnmM1jc
 " r: comment after enter, q: allow formatting with gq, n: recognize lists
 " m: break multi-byte characters, M: no space after multi-byte char when joining lines
 " 1: don't break afer one-letter word, j: remove comment leader when joining lines
@@ -119,37 +115,47 @@ set formatoptions=qnmM1jc
 " -> :help fo-table
 set linebreak
 set breakat+=>
-let &showbreak='>> '
+set showbreak=↪
 set breakindent
-set breakindentopt=shift:-3
+set breakindentopt=shift:-1
 
 " Tab length
 set tabstop=4 shiftwidth=4
+augroup IndentGroup
+	autocmd!
+	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
+	autocmd FileType haskell setlocal expandtab
+	autocmd FileType plaintex,tex set textwidth=100
+augroup END
+
+" File type specific settings
 augroup FileTypeGroup
 	autocmd!
-	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2 | set colorcolumn=0
-	autocmd FileType haskell setlocal expandtab
-	autocmd FileType plaintex,tex set textwidth=100 | set formatoptions+=t
+	autocmd FileType html,xhtml,php,eruby setlocal colorcolumn=0
+	autocmd FileType plaintex,tex set formatoptions+=t
 augroup END
+
+" Load Emmet shortcuts and other settings specific to HTML/CSS files
+augroup HTMLSettings
+	autocmd!
+	autocmd FileType html,xhtml,css,php,eruby,scss source $HOME/.config/nvim/html_settings.vim
+augroup END
+
 " Show invisibles
-set listchars=tab:»\ ,eol:¬,nbsp:•
+set listchars=tab:»\ ,eol:¬,nbsp:•,trail:◆
 nnoremap <leader>l :set list!<cr>
 
 " Line break at cursor
 nnoremap <return> i<cr><esc>
 
-" Fold tag
-nnoremap <leader>ft Vatzf
-
 " Indentation
 nnoremap <leader>it vit=
 nnoremap <leader>iT vat=
-nnoremap <C-tab> gg=G
 set cinoptions+={-1s}
 set cinoptions+=(0
 
 " Open/Close folds
-nnoremap <space> za
+nnoremap <leader>z za
 
 " Splits
 set splitbelow
@@ -166,8 +172,6 @@ nnoremap <C-s> <C-w>h
 nnoremap <C-t> <C-w>l
 nnoremap <C-n> <C-w>j
 nnoremap <C-r> <C-w>k
-"nnoremap <C-N> <C-w>j<C-w>_
-"nnoremap <C-R> <C-w>k<C-w>_
 
 " Remap 'redo' since we are using <C-r> for navigation now
 nnoremap <C-j> <C-r>
@@ -209,11 +213,6 @@ inoremap <f1> <esc>
 nnoremap <f1> <esc>
 vnoremap <f1> <esc>
 
-" Paste stuff directly from insert mode
-"inoremap <leader>p <esc>pa
-"inoremap <leader>P <esc>"0pa
-"inoremap <leader>sp <esc>"*pa
-
 " Paste last yanked text, cut without yanking to the buffer
 nnoremap gp "0p
 vnoremap gx "_x
@@ -231,15 +230,12 @@ inoremap <S-cr> <cr><esc>O
 " tee hack to save a file even when it's opened read-only (e.g. forgetting sudo)
 cmap w!! w !sudo tee >/dev/null %
 
-" prevent accidentally writing a backtick when trying to save
-cmap w´ w
-
 " delete and move one line up
 nnoremap dD ddk
 
 " Ctrl-P setup
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['htdocs']
+let g:ctrlp_root_markers = ['pom.xml', 'htdocs']
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
@@ -247,10 +243,6 @@ let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <C-b> :CtrlPBuffer<cr>
 nnoremap <C-f> :CtrlPFunky<cr>
 nnoremap <M-f> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
-
-" toggle undo
-nnoremap <M-u> :GundoToggle<cr>
-nnoremap <leader>u :GundoToggle<cr>
 
 " Git commands
 nnoremap <M-g>s :Gstatus<cr>
@@ -261,40 +253,11 @@ nnoremap <M-g>b :Gblame<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <M-g>d :Gdiff<cr>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_checkers = ['htmlhint']
-let g:syntastic_html_htmlhint_args = '--config ~/.vim/rc/htmlhintrc'
-let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute']
-let g:syntastic_css_csslint_args = '--ignore="box-model,box-sizing,universal-selector,adjoining-classes"'
-autocmd BufNewFile,BufRead htmlhintrc set filetype=json
-nnoremap <M-s>c :SyntasticCheck<cr>
-nnoremap <M-s>r :SyntasticReset<cr>
-nnoremap <M-s>t :SyntasticToggleMode<cr>
-nnoremap <leader>sc :SyntasticCheck<cr>
-nnoremap <leader>sr :SyntasticReset<cr>
-nnoremap <leader>st :SyntasticToggleMode<cr>
-
 " Session Management
 nnoremap <M-s>o :SessionOpen 
 nnoremap <M-s>s :SessionSave 
 nnoremap <leader>so :SessionOpen 
 nnoremap <leader>ss :SessionSave 
-
-" Neocomplete
-let g:cp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-" Tab completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
@@ -317,6 +280,7 @@ no L T
 
 no gn gj
 no gr gk
+
 
 " Emmet customization
 augroup EmmetSource
