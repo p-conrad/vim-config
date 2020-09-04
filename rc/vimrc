@@ -189,6 +189,8 @@ nnoremap <silent> <leader>5 <C-w>h:exec "vertical resize " . (&columns * 12/16)<
 " Close buffer
 nnoremap <M-q> :q<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <M-d> :bdelete<cr>
+nnoremap <leader>d :bdelete<cr>
 
 " Exit to normal mode
 inoremap … <esc>
