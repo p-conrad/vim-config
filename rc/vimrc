@@ -76,13 +76,13 @@ set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#sta
 set number relativenumber
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufEnter,FocusGained,InsertLeave * if &ft !~ '^nerdtree$' | set relativenumber | endif
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 " Always switch to the directory of the current file
-set autochdir
-" autocmd BufEnter * silent! lcd %:p:h
+" autochdir breaks NERDTree, so we use autocmd instead
+autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif
 
 let mapleader = " "
 let maplocalleader = "\\"
@@ -231,6 +231,20 @@ cmap w!! w !sudo tee >/dev/null %
 
 " delete and move one line up
 nnoremap dD ddk
+
+" NERDTree
+nnoremap <M-t> :NERDTreeToggle .<cr>
+nnoremap <leader>t :NERDTreeToggle .<cr>
+nnoremap <M-T> :NERDTreeToggleVCS .<cr>
+nnoremap <leader>T :NERDTreeToggleVCS .<cr>
+let NERDTreeMapRefresh = 'l'
+let NERDTreeMapRefreshRoot = 'L'
+let NERDTreeMenuDown = 'n'
+let NERDTreeMenucUp = 'r'
+let NERDTreeMapJumpLastChild = 'N'
+let NERDTreeMapJumpFirstChild = 'R'
+"let NERDTreeMapJumbNextSibling = '<C-N>'
+"let NERDTreeMapJumbPrevSibling = '<C-R>'
 
 " Ctrl-P setup
 let g:ctrlp_working_path_mode = 'ra'
