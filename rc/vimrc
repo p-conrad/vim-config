@@ -276,7 +276,7 @@ nnoremap <leader>sc :CloseSession<cr>
 nnoremap <leader>sto :OpenTabSession 
 nnoremap <leader>sts :SaveTabSession 
 nnoremap <leader>stc :CloseTabSession<cr>
-nnoremap <leader>sr :RestartVim
+nnoremap <leader>sr :RestartVim<cr>
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
