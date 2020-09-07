@@ -269,10 +269,14 @@ nnoremap <leader>gb :Gblame<cr>
 nnoremap <M-g>d :Gdiff<cr>
 
 " Session Management
-nnoremap <M-s>o :SessionOpen 
-nnoremap <M-s>s :SessionSave 
-nnoremap <leader>so :SessionOpen 
-nnoremap <leader>ss :SessionSave 
+let g:session_autosave = 'yes'
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
+nnoremap <leader>sc :CloseSession<cr>
+nnoremap <leader>sto :OpenTabSession 
+nnoremap <leader>sts :SaveTabSession 
+nnoremap <leader>stc :CloseTabSession<cr>
+nnoremap <leader>sr :RestartVim
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
