@@ -278,6 +278,10 @@ nnoremap <leader>sts :SaveTabSession
 nnoremap <leader>stc :CloseTabSession<cr>
 nnoremap <leader>sr :RestartVim<cr>
 
+" Using the integrated terminal
+nnoremap <leader>to :term<cr>
+nnoremap <leader>tr :term 
+
 " Map adjustments for the Neo 2 keyboard layout
 no s h
 no h s
