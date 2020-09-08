@@ -260,13 +260,12 @@ nnoremap <C-f> :CtrlPFunky<cr>
 nnoremap <M-f> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Git commands
-nnoremap <M-g>s :Gstatus<cr>
-nnoremap <M-g>c :Gcommit<cr>
-nnoremap <M-g>p :Gpush<cr>
-nnoremap <M-g>l :Glog<cr>
-nnoremap <M-g>b :Gblame<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gb :Gblame<cr>
-nnoremap <M-g>d :Gdiff<cr>
+nnoremap <leader>gd :Gdiff<cr>
 
 " Session Management
 let g:session_autosave = 'yes'
