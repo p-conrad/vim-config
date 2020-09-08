@@ -260,6 +260,7 @@ nnoremap <C-f> :CtrlPFunky<cr>
 nnoremap <M-f> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Git commands
+nnoremap <leader>gg :Git 
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gp :Gpush<cr>
