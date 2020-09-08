@@ -278,8 +278,9 @@ nnoremap <leader>stc :CloseTabSession<cr>
 nnoremap <leader>sr :RestartVim<cr>
 
 " Using the integrated terminal
-nnoremap <leader>to :term<cr>
-nnoremap <leader>tr :term 
+nnoremap <leader>to :exec "term ++rows=" . (&lines * 1/3)<cr>
+" TODO: Specify line height here as well
+nnoremap <leader>tr :term
 
 " Map adjustments for the Neo 2 keyboard layout
 no s h
