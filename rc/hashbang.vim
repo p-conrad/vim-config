@@ -47,4 +47,3 @@ endfunction
 :autocmd BufNewFile *.* :call Hashbang(1,1,0)
 
 " original source: https://github.com/LinuxSDA/HashBang
-" vim:filetype=vim

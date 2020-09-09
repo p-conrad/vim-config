@@ -312,7 +312,7 @@ no gn gj
 no gr gk
 
 " Hashbang
-source ~/.vim/rc/hashbang
+source ~/.vim/rc/hashbang.vim
 
 "Sessions
 let g:session_autosave = 'no'
