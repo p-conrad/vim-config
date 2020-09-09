@@ -74,7 +74,15 @@ set cursorline
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set statusline=%.35F[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%*%=%c,%l/%L\ %P
+
+" Statusline
+set statusline=%.35F
+set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
+set statusline+=%h%m%r%y
+set statusline+=%{fugitive#statusline()}
+set statusline+=[%{coc#status()}%{get(b:,'coc_current_function','')}]
+set statusline+=%=
+set statusline+=%c,%l/%L\ %P
 
 " Hybrid line numbering including automatic toggling
 " Source: https://jeffkreeftmeijer.com/vim-number/
