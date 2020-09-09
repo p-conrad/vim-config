@@ -132,7 +132,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent> <leader>la  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>ld  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent> <leader>le  :<C-u>CocList extensions<cr>
 " Show commands.
