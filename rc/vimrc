@@ -32,11 +32,13 @@ Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-set background=dark
 if has('gui_running')
-	colorscheme one
+	set background=light
+	colorscheme PaperColor
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
@@ -53,14 +55,15 @@ if has('gui_running')
 		set guifont=Hack\ 11
 	endif
 else
-	colorscheme Tomorrow-Night
+	set background=dark
+	colorscheme nord
 endif
 
 filetype plugin indent on
 packadd! matchit
 set omnifunc=syntaxcomplete#Complete
 syntax on
-set t_Co=256
+set termguicolors
 set autoindent
 set ruler
 set scrolloff=2
