@@ -139,9 +139,9 @@ augroup FileTypeGroup
 augroup END
 
 " Load Emmet shortcuts and other settings specific to HTML/CSS files
-augroup HTMLSettings
+augroup WebdevGroup
 	autocmd!
-	autocmd FileType html,xhtml,css,php,eruby,scss source $HOME/.config/nvim/html_settings.vim
+	autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/webdev.vim
 augroup END
 
 " Show invisibles
@@ -310,13 +310,6 @@ no L T
 
 no gn gj
 no gr gk
-
-
-" Emmet customization
-augroup EmmetSource
-	autocmd!
-	autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/emmet_custom
-augroup END
 
 " Hashbang
 source ~/.vim/rc/hashbang
