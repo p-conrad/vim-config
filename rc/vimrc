@@ -20,6 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
 Plug 'ambv/black', { 'for': 'python' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Some interesting stuff to look into:
 " https://github.com/svermeulen/vim-easyclip
@@ -146,7 +147,7 @@ augroup END
 
 " Show invisibles
 set listchars=tab:»\ ,eol:¬,nbsp:•,trail:◆
-nnoremap <leader>l :set list!<cr>
+nnoremap <leader>ll :set list!<cr>
 
 " Line break at cursor
 nnoremap <return> i<cr><esc>
@@ -317,3 +318,6 @@ source ~/.vim/rc/hashbang.vim
 "Sessions
 let g:session_autosave = 'no'
 let g:session_command_aliases = 1
+
+" CoC
+source ~/.vim/rc/coc_settings.vim
