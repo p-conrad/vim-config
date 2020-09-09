@@ -21,6 +21,10 @@ Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
 Plug 'ambv/black', { 'for': 'python' }
 
+" Some interesting stuff to look into:
+" https://github.com/svermeulen/vim-easyclip
+" https://github.com/stsewd/fzf-checkout.vim
+
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
