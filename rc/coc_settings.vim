@@ -130,6 +130,10 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+" Jump between highlighted symbols
+nnoremap <silent> ]s :<C-u>CocCommand document.jumpToNextSymbol<cr>
+nnoremap <silent> [s :<C-u>CocCommand document.jumpToPrevSymbol<cr>
+
 " Mappings for CoCList
 " Show all diagnostics.
 nnoremap <silent> <leader>ld  :<C-u>CocList diagnostics<cr>
