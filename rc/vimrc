@@ -17,6 +17,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
 Plug 'ambv/black', { 'for': 'python' }
@@ -135,10 +136,10 @@ set breakindent
 set breakindentopt=shift:-1
 
 " Tab length
-set tabstop=4 shiftwidth=4
+set tabstop=4 shiftwidth=4 softtabstop=4
 augroup IndentGroup
 	autocmd!
-	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2
+	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
 	autocmd FileType haskell setlocal expandtab
 	autocmd FileType plaintex,tex set textwidth=100
 augroup END
