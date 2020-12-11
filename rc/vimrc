@@ -302,6 +302,9 @@ nnoremap <leader>xo :exec "term ++rows=" . (&lines * 1/3)<cr>
 " TODO: Specify line height here as well
 nnoremap <leader>xr :term
 
+" reverse a range of line (assuming the row above is marked with t -> :help 12.4)
+nnoremap <leader>r :'t+1,.g/^/m 't<cr>
+
 " Map adjustments for the Neo 2 keyboard layout
 no s h
 no h s
