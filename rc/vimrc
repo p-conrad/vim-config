@@ -22,6 +22,8 @@ Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
 Plug 'ambv/black', { 'for': 'python' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'Kjwon15/vim-transparent'
+Plug 'junegunn/vim-peekaboo'
 
 " Some interesting stuff to look into:
 " https://github.com/svermeulen/vim-easyclip
