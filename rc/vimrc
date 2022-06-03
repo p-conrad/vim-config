@@ -48,14 +48,12 @@ if has('gui_running')
 	set guioptions-=m
 	" Toggle the menu:
 	nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+	set guifont=Fira\ Code\ 11
+	set linespace=2
 	if has('gui_macvim')
 		set linespace=4
 		set macligatures
-		set guifont=Fira\ Code\ Regular:h12
 		set expandtab
-	else
-		set linespace=2
-		set guifont=Hack\ 11
 	endif
 else
 	set background=dark
