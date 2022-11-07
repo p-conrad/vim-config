@@ -46,14 +46,9 @@ if has('gui_running')
 	nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 	set guifont=Fira\ Code\ 11
 	set linespace=2
-	if has('gui_macvim')
-		set linespace=4
-		set macligatures
-		set expandtab
-	endif
 else
 	set background=dark
-	colorscheme nord
+	colorscheme one
 endif
 
 filetype plugin indent on
