@@ -37,6 +37,7 @@ call plug#end()
 if has('gui_running')
 	set background=light
 	colorscheme PaperColor
+	" r: right-hand scroll bar, L: left-hand scroll bar, T: toolbar, m: menu
 	set guioptions-=r
 	set guioptions-=L
 	set guioptions-=T
