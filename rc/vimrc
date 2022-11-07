@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/bundle')
 " Generally useful extensions
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'xolox/vim-misc'
@@ -258,17 +256,6 @@ augroup NerdTreeGroup
 	autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
 				\ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 augroup END
-
-" Ctrl-P setup
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['pom.xml', 'htdocs']
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-
-nnoremap <C-b> :CtrlPBuffer<cr>
-nnoremap <C-f> :CtrlPFunky<cr>
-nnoremap <M-f> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Git commands
 " for reference on remapping: https://github.com/tpope/vim-fugitive/issues/1080
