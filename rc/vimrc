@@ -1,29 +1,30 @@
 call plug#begin('~/.vim/bundle')
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
-Plug 'tpope/vim-surround'
+" Generally useful extensions
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
-Plug 'chaoren/vim-wordmotion'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+" Text-editing convenience
 Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-line'
   Plug 'tkhren/vim-textobj-numeral'
+Plug 'chaoren/vim-wordmotion'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
-Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-swap'
+
+
+" Language-specific tools
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
 Plug 'ambv/black', { 'for': 'python' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'Kjwon15/vim-transparent'
-Plug 'junegunn/vim-peekaboo'
 
 " Some interesting stuff to look into:
 " https://github.com/svermeulen/vim-easyclip
@@ -31,7 +32,6 @@ Plug 'junegunn/vim-peekaboo'
 
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
-Plug 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
@@ -105,14 +105,14 @@ let mapleader = " "
 let maplocalleader = "\\"
 
 " Searching
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set showmatch
 set hlsearch
+nnoremap / /\v
+vnoremap / /\v
 nnoremap <leader>h :noh<cr>
 " Search for highlighted text (will not work with backspaces)
 vnoremap // y/\V<C-R>"<CR>
@@ -135,6 +135,9 @@ set showbreak=↪
 set breakindent
 set breakindentopt=shift:-1
 
+" list chars
+set listchars=tab:»\ ,eol:¬,nbsp:•,trail:◆
+
 " Tab length
 set tabstop=4 shiftwidth=4 softtabstop=4
 augroup IndentGroup
@@ -156,10 +159,6 @@ augroup WebdevGroup
 	autocmd!
 	autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/webdev.vim
 augroup END
-
-" Show invisibles
-set listchars=tab:»\ ,eol:¬,nbsp:•,trail:◆
-nnoremap <leader>ll :set list!<cr>
 
 " Line break at cursor
 nnoremap <return> i<cr><esc>
@@ -212,16 +211,6 @@ nnoremap <leader>d :bdelete<cr>
 " Exit to normal mode
 inoremap … <esc>
 
-" Disable IME automatically when leaving insert mode on MacVim
-" -> https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
-if has('mac')
-	let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-	augroup MyIMEGroup
-		autocmd!
-		autocmd InsertLeave * :call system(g:imeoff)
-	augroup END
-endif
-
 " Open .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>eV :vsp $MYVIMRC<cr>
@@ -241,9 +230,6 @@ nnoremap gV `[v`]
 " Open quickfix/location list
 nnoremap <M-c> :copen<cr>
 nnoremap <M-l> :lopen<cr>
-
-" Split a tag into multiple lines
-inoremap <S-cr> <cr><esc>O
 
 " tee hack to save a file even when it's opened read-only (e.g. forgetting sudo)
 cmap w!! w !sudo tee >/dev/null %
@@ -299,6 +285,7 @@ nnoremap <leader>gd :Gdiff<cr>
 
 " Session Management
 let g:session_autosave = 'yes'
+let g:session_command_aliases = 1
 nnoremap <leader>so :OpenSession 
 nnoremap <leader>ss :SaveSession 
 nnoremap <leader>sc :CloseSession<cr>
@@ -339,10 +326,6 @@ no gr gk
 
 " Hashbang
 source ~/.vim/rc/hashbang.vim
-
-"Sessions
-let g:session_autosave = 'no'
-let g:session_command_aliases = 1
 
 " CoC
 source ~/.vim/rc/coc_settings.vim
