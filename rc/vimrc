@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/bundle')
 " Generally useful extensions
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'xolox/vim-misc'
@@ -239,7 +239,7 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMapRefresh = 'l'
 let NERDTreeMapRefreshRoot = 'L'
 let NERDTreeMenuDown = 'n'
-let NERDTreeMenucUp = 'r'
+let NERDTreeMenuUp = 'r'
 let NERDTreeMapJumpLastChild = 'N'
 let NERDTreeMapJumpFirstChild = 'R'
 "let NERDTreeMapJumbNextSibling = '<C-N>'
