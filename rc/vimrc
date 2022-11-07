@@ -301,26 +301,26 @@ nnoremap <leader>xr :term
 nnoremap <leader>r :'t+1,.g/^/m 't<cr>
 
 " Map adjustments for the Neo 2 keyboard layout
-nnoremap s h
-nnoremap h s
-nnoremap n j
-nnoremap j n
-nnoremap r k
-nnoremap k r
-nnoremap t l
-nnoremap l t
+no s h
+no h s
+no n j
+no j n
+no r k
+no k r
+no t l
+no l t
 
-nnoremap S H
-nnoremap H S
-nnoremap N J
-nnoremap J N
-nnoremap R K
-nnoremap K R
-nnoremap T L
-nnoremap L T
+no S H
+no H S
+no N J
+no J N
+no R K
+no K R
+no T L
+no L T
 
-nnoremap gn gj
-nnoremap gr gk
+no gn gj
+no gr gk
 
 " Hashbang
 source ~/.vim/rc/hashbang.vim
