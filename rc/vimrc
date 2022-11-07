@@ -24,7 +24,6 @@ Plug 'machakann/vim-swap'
 " Language-specific tools
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
 Plug 'ambv/black', { 'for': 'python' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Some interesting stuff to look into:
 " https://github.com/svermeulen/vim-easyclip
@@ -84,7 +83,6 @@ set statusline=%.35F
 set statusline+=[%{strlen(&fenc)?&fenc:'none'},%{&ff}]
 set statusline+=%h%m%r%y
 set statusline+=%{fugitive#statusline()}
-set statusline+=[%{coc#status()}%{get(b:,'coc_current_function','')}]
 set statusline+=%=
 set statusline+=%c,%l/%L\ %P
 
@@ -326,6 +324,3 @@ nnoremap gr gk
 
 " Hashbang
 source ~/.vim/rc/hashbang.vim
-
-" CoC
-source ~/.vim/rc/coc_settings.vim
