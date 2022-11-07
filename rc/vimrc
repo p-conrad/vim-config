@@ -5,6 +5,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'tpope/vim-sleuth'
 
 " Text-editing convenience
 Plug 'kana/vim-textobj-user'
