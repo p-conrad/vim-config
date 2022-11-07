@@ -12,7 +12,7 @@ Plug 'kana/vim-textobj-user'
   Plug 'tkhren/vim-textobj-numeral'
 Plug 'chaoren/vim-wordmotion'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -225,6 +225,9 @@ cmap w!! w !sudo tee >/dev/null %
 
 " delete and move one line up
 nnoremap dD ddk
+
+" Auto-Pairs
+let g:AutoPairsMapBS = 1
 
 " NERDTree
 nnoremap <M-t> :NERDTreeToggle .<cr>
