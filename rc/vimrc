@@ -18,7 +18,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'machakann/vim-swap'
 
-
 " Language-specific tools
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xhtml', 'css', 'php', 'eruby', 'scss'] }
 Plug 'ambv/black', { 'for': 'python' }
@@ -33,7 +32,6 @@ Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 if has('gui_running')
