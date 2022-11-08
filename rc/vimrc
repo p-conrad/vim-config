@@ -227,11 +227,15 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>eV :vsp $MYVIMRC<cr>
 
 " NEO 2 adjustments == {{
+" Intuitive down/up behaviour but without breaking counts
+noremap <expr> n (v:count == 0 ? 'gj' : 'j')
+noremap <expr> r (v:count == 0 ? 'gk' : 'k')
+
 noremap s h
 noremap h s
-noremap n j
+"noremap n j
 noremap j n
-noremap r k
+"noremap r k
 noremap k r
 noremap t l
 noremap l t
@@ -244,9 +248,6 @@ noremap R K
 noremap K R
 noremap T L
 noremap L T
-
-noremap gn gj
-noremap gr gk
 " == }}
 
 
