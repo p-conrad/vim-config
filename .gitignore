@@ -2,5 +2,8 @@ bundle/*
 autoload/*
 colors/*
 sessions/*
+backup/*
+undo/*
+swap/*
 *.swp
 black/
