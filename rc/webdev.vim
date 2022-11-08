@@ -7,6 +7,10 @@ set breakat+=>
 " Fold tag
 nnoremap <leader>ft Vatzf
 
+" Indentation in and around tags
+nnoremap <leader>it vit=
+nnoremap <leader>iT vat=
+
 " Emmet leader mappings
 nmap <buffer> <leader><leader> <plug>(emmet-expand-abbr)
 vmap <buffer> <leader><leader> <plug>(emmet-expand-abbr)
