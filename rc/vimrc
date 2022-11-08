@@ -7,6 +7,8 @@ Plug 'danro/rename.vim'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'tpope/vim-sleuth'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Text-editing convenience
 Plug 'kana/vim-textobj-user'
@@ -290,13 +292,47 @@ nnoremap <leader>gd :Git diff<cr>
 " Session Management
 let g:session_autosave = 'yes'
 let g:session_command_aliases = 1
-nnoremap <leader>so :OpenSession 
-nnoremap <leader>ss :SaveSession 
+nnoremap <leader>so :OpenSession<space>
+nnoremap <leader>ss :SaveSession<space>
 nnoremap <leader>sc :CloseSession<cr>
-nnoremap <leader>sto :OpenTabSession 
-nnoremap <leader>sts :SaveTabSession 
+nnoremap <leader>sto :OpenTabSession<space>
+nnoremap <leader>sts :SaveTabSession<space>
 nnoremap <leader>stc :CloseTabSession<cr>
 nnoremap <leader>sr :RestartVim<cr>
 
 " Auto-Pairs
 let g:AutoPairsMapBS = 1
+
+" FZF
+" maybe TODO: C-p is a auto-pairs prefix and only works with a delay
+nnoremap <C-p> :Files<cr>
+nnoremap <C-b> :Buffers<cr>
+nnoremap <C-S-p> :Commands<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fcb :BCommits<cr>
+nnoremap <leader>fcc :Commits<cr>
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fh :History<cr>
+nnoremap <leader>flb :BLines<cr>
+nnoremap <leader>fll :Lines<cr>
+nnoremap <leader>fm :Marks<cr>
+nnoremap <leader>fr :Rg<cr>
+"nnoremap <leader>fs :Snippets<cr>
+nnoremap <leader>ft :Tags<cr>
+" Some more interesting ones to keep in mind: Colors, Filetypes, Helptags, Locate, Maps
+
+" Make fzf match the current color theme
+let g:fzf_colors =
+    \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
