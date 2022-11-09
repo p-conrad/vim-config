@@ -209,6 +209,31 @@ inoremap <C-k> <C-o>d$
 inoremap <C-k> <C-o>d$
 nnoremap <C-x><C-s> :w<cr>
 
+" Shifting lines up/down, featuring reindentation
+function ShiftAndRestoreCol(lDelta, mArg)
+	" This helper functions calls :move to shift a line into a given direction,
+	" restoring the cursor position after the movement,
+	" while also taking potential reindentation into account
+	let l:oldPos = getpos(".")
+	execute "normal! ^"
+	let l:oldIndent = getpos(".")[2]
+
+	execute "move ." . a:mArg
+	execute "normal! =="
+
+	execute "normal! ^"
+	let l:indentDiff = getpos(".")[2] - oldIndent
+	call setpos(".", [oldPos[0], oldPos[1] + a:lDelta, oldPos[2] + indentDiff, oldPos[3]])
+endfunction
+"nnoremap <S-Up> :m .-2<cr>==
+"nnoremap <S-Down> :m.+1<cr>==
+nnoremap <silent> <S-Down> :call ShiftAndRestoreCol(1, "+1")<cr>
+nnoremap <silent> <S-Up> :call ShiftAndRestoreCol(-1, "-2")<cr>
+inoremap <S-Down> <esc>:m.+1<cr>==gi
+inoremap <S-Up> <esc>:m .-2<cr>==gi
+vnoremap <S-Up> :m '<-2<CR>gv=gv
+vnoremap <S-Down> :m '>+1<CR>gv=gv
+
 " Open/close folds
 nnoremap <leader>z za
 
