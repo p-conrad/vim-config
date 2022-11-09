@@ -195,7 +195,7 @@ nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 11/16)<
 nnoremap <silent> <leader>5 <C-w>h:exec "vertical resize " . (&columns * 12/16)<cr>
 " == }}
 
-" Emacs-style keybindings == {{
+" Emacs-style keybindings
 " Mappings that interfere with existing ones (e.g. C-n/C-p) are omitted
 inoremap <C-f> <right>
 inoremap <C-b> <left>
@@ -207,9 +207,7 @@ inoremap <C-d> <C-o>x
 inoremap <M-d> <C-o>dw
 inoremap <C-k> <C-o>d$
 inoremap <C-k> <C-o>d$
-
 nnoremap <C-x><C-s> :w<cr>
-" == }}
 
 " Open/close folds
 nnoremap <leader>z za
