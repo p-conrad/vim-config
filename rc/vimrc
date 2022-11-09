@@ -112,8 +112,8 @@ augroup END
 autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif
 
 " Leader settings
-let mapleader = " "
-let maplocalleader = "\\"
+let mapleader = ' '
+let maplocalleader = '\'
 
 " Searching
 set ignorecase
@@ -189,11 +189,11 @@ nnoremap <silent> <M-Left> :vertical resize -5<cr>
 nnoremap <silent> <M-Right> :vertical resize +5<cr>
 nnoremap <silent> <M-Up> :resize +5<cr>
 nnoremap <silent> <M-Down> :resize -5<cr>
-nnoremap <silent> <leader>1 <C-w>h:exec "vertical resize " . (&columns * 8/16)<cr>
-nnoremap <silent> <leader>2 <C-w>h:exec "vertical resize " . (&columns * 9/16)<cr>
-nnoremap <silent> <leader>3 <C-w>h:exec "vertical resize " . (&columns * 10/16)<cr>
-nnoremap <silent> <leader>4 <C-w>h:exec "vertical resize " . (&columns * 11/16)<cr>
-nnoremap <silent> <leader>5 <C-w>h:exec "vertical resize " . (&columns * 12/16)<cr>
+nnoremap <silent> <leader>1 <C-w>h:exec 'vertical resize ' . (&columns * 8/16)<cr>
+nnoremap <silent> <leader>2 <C-w>h:exec 'vertical resize ' . (&columns * 9/16)<cr>
+nnoremap <silent> <leader>3 <C-w>h:exec 'vertical resize ' . (&columns * 10/16)<cr>
+nnoremap <silent> <leader>4 <C-w>h:exec 'vertical resize ' . (&columns * 11/16)<cr>
+nnoremap <silent> <leader>5 <C-w>h:exec 'vertical resize ' . (&columns * 12/16)<cr>
 " == }}
 
 " Emacs-style keybindings
@@ -215,21 +215,21 @@ function ShiftAndRestoreCol(lDelta, mArg)
 	" This helper functions calls :move to shift a line into a given direction,
 	" restoring the cursor position after the movement,
 	" while also taking potential reindentation into account
-	let l:oldPos = getpos(".")
-	execute "normal! ^"
-	let l:oldIndent = getpos(".")[2]
+	let l:oldPos = getpos('.')
+	execute 'normal! ^'
+	let l:oldIndent = getpos('.')[2]
 
-	execute "move ." . a:mArg
-	execute "normal! =="
+	execute 'move .' . a:mArg
+	execute 'normal! =='
 
-	execute "normal! ^"
-	let l:indentDiff = getpos(".")[2] - oldIndent
-	call setpos(".", [oldPos[0], oldPos[1] + a:lDelta, oldPos[2] + indentDiff, oldPos[3]])
+	execute 'normal! ^'
+	let l:indentDiff = getpos('.')[2] - oldIndent
+	call setpos('.', [oldPos[0], oldPos[1] + a:lDelta, oldPos[2] + indentDiff, oldPos[3]])
 endfunction
 "nnoremap <S-Up> :m .-2<cr>==
 "nnoremap <S-Down> :m.+1<cr>==
-nnoremap <silent> <S-Down> :call ShiftAndRestoreCol(1, "+1")<cr>
-nnoremap <silent> <S-Up> :call ShiftAndRestoreCol(-1, "-2")<cr>
+nnoremap <silent> <S-Down> :call ShiftAndRestoreCol(1, '+1')<cr>
+nnoremap <silent> <S-Up> :call ShiftAndRestoreCol(-1, '-2')<cr>
 inoremap <S-Down> <esc>:m.+1<cr>==gi
 inoremap <S-Up> <esc>:m .-2<cr>==gi
 vnoremap <S-Up> :m '<-2<CR>gv=gv
@@ -255,7 +255,7 @@ nnoremap <f1> <esc>
 vnoremap <f1> <esc>
 
 " Using the integrated terminal (x for 'execute')
-nnoremap <leader>xo :exec "term ++rows=" . (&lines * 1/3)<cr>
+nnoremap <leader>xo :exec 'term ++rows=' . (&lines * 1/3)<cr>
 nnoremap <leader>xr :term
 
 " Insert text into the command line for quick testing
@@ -346,6 +346,7 @@ let g:AutoPairsMapBS = 1
 
 " FZF == {{
 " maybe TODO: C-p is a auto-pairs prefix and only works with a delay
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 nnoremap <C-p> :Files<cr>
 nnoremap <C-x><C-f> :Files<cr>
 nnoremap <C-b> :Buffers<cr>
@@ -385,7 +386,7 @@ augroup update_bat_theme
 	autocmd VimEnter,ColorScheme * call ToggleBatEnvVar()
 augroup end
 function ToggleBatEnvVar()
-	if (&background == "light")
+	if (&background == 'light')
 		let $BAT_THEME='Monokai Extended Light'
 	else
 		let $BAT_THEME=''
