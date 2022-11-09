@@ -9,6 +9,7 @@ Plug 'xolox/vim-session'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'csexton/trailertrash.vim'
 
 " Text-editing convenience
 Plug 'kana/vim-textobj-user'
