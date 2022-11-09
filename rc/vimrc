@@ -303,7 +303,7 @@ nnoremap <leader>sr :RestartVim<cr>
 " Auto-Pairs
 let g:AutoPairsMapBS = 1
 
-" FZF
+" FZF == {{
 " maybe TODO: C-p is a auto-pairs prefix and only works with a delay
 nnoremap <C-p> :Files<cr>
 nnoremap <C-b> :Buffers<cr>
@@ -336,3 +336,17 @@ let g:fzf_colors =
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] }
+
+" Automatically adapt fzf's bat theme to dark/light backgrounds
+augroup update_bat_theme
+	autocmd!
+	autocmd VimEnter,ColorScheme * call ToggleBatEnvVar()
+augroup end
+function ToggleBatEnvVar()
+	if (&background == "light")
+		let $BAT_THEME='Monokai Extended Light'
+	else
+		let $BAT_THEME=''
+	endif
+endfunction
+" == }}
