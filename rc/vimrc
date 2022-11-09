@@ -281,7 +281,7 @@ augroup END
 " Git commands
 " for reference on remapping: https://github.com/tpope/vim-fugitive/issues/1080
 let g:nremap = {'r': 'b'}
-nnoremap <leader>gg :Git 
+nnoremap <leader>gg :Git<space>
 nnoremap <leader>gs :Git status<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gp :Git push<cr>
