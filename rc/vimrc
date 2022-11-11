@@ -301,12 +301,18 @@ nnoremap <leader>t :NERDTreeToggle .<cr>
 nnoremap <M-T> :NERDTreeToggleVCS .<cr>
 nnoremap <leader>T :NERDTreeToggleVCS .<cr>
 let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 let NERDTreeMapRefresh = 'l'
 let NERDTreeMapRefreshRoot = 'L'
 let NERDTreeMenuDown = 'n'
 let NERDTreeMenuUp = 'r'
 let NERDTreeMapJumpLastChild = 'N'
 let NERDTreeMapJumpFirstChild = 'R'
+let NERDTreeMapActivateNode = 't'
+let NERDTreeMapPreview = 'gt'
+let NERDTreeMapOpenRecursively = 'T'
 "let NERDTreeMapJumbNextSibling = '<C-N>'
 "let NERDTreeMapJumbPrevSibling = '<C-R>'
 augroup NerdTreeGroup
