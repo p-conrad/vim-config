@@ -37,6 +37,7 @@ Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
 call plug#end()
 
 packadd! matchit
@@ -49,9 +50,9 @@ augroup END
 " == }}
 
 " Appearance settings
+colorscheme selenized
 if has('gui_running')
 	set background=light
-	colorscheme PaperColor
 	" r: right-hand scroll bar, L: left-hand scroll bar, T: toolbar, m: menu
 	set guioptions-=r
 	set guioptions-=L
@@ -63,7 +64,6 @@ if has('gui_running')
 	set linespace=2
 else
 	set background=dark
-	colorscheme one
 endif
 
 filetype plugin indent on
