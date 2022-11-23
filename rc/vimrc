@@ -10,6 +10,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'csexton/trailertrash.vim'
+Plug 'junegunn/goyo.vim'
 
 " Text-editing convenience
 Plug 'kana/vim-textobj-user'
@@ -100,12 +101,23 @@ set statusline+=%c,%l/%L\ %P
 
 " Hybrid line numbering including automatic toggling
 " Source: https://jeffkreeftmeijer.com/vim-number/
-set number relativenumber
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * if &ft !~ '^nerdtree$' && &ft !~ '^help$' | set relativenumber | endif
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" We wrap this in a function to be able to enable/disable them on the fly,
+" such that it won't interfere with Goyo disabling the line numbers
+function! SetNumberToggle(enable)
+	if a:enable
+		set number relativenumber
+		augroup numbertoggle
+			autocmd!
+			autocmd BufEnter,FocusGained,InsertLeave * if &ft !~ '^nerdtree$' && &ft !~ '^help$' | set relativenumber | endif
+			autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+		augroup END
+	else
+		augroup numbertoggle
+			autocmd!
+		augroup END
+	endif
+endfunction
+call SetNumberToggle(1)
 
 " Always switch to the directory of the current file
 " autochdir breaks NERDTree, so we use autocmd instead
@@ -398,4 +410,24 @@ function ToggleBatEnvVar()
 		let $BAT_THEME=''
 	endif
 endfunction
+" == }}
+
+" Goyo settings == {{
+function! s:goyo_enter()
+	call SetNumberToggle(0)
+	set spell noci nosi noai nolist noshowmode noshowcmd nonumber norelativenumber
+	set complete+=s
+	set bg=light
+endfunction
+
+function! s:goyo_leave()
+	call SetNumberToggle(1)
+endfunction
+
+augroup GoyoGroup
+	autocmd!
+	autocmd! User GoyoEnter nested call <SID>goyo_enter()
+	autocmd! User GoyoLeave nested call <SID>goyo_leave()
+augroup END
+nmap <leader>p :Goyo<CR>
 " == }}
