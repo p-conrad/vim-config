@@ -45,26 +45,27 @@ packadd! matchit
 source ~/.vim/rc/hashbang.vim
 
 augroup WebdevSettings
-	autocmd!
-	autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/webdev.vim
+    autocmd!
+    autocmd FileType html,xhtml,css,php,eruby,scss source ~/.vim/rc/webdev.vim
 augroup END
 " == }}
 
 " Appearance settings
 colorscheme selenized
 if has('gui_running')
-	set background=light
-	" r: right-hand scroll bar, L: left-hand scroll bar, T: toolbar, m: menu
-	set guioptions-=r
-	set guioptions-=L
-	set guioptions-=T
-	set guioptions-=m
-	" Toggle the menu:
-	nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-	set guifont=Fira\ Code\ 11
-	set linespace=2
+    set background=light
+    " r: right-hand scroll bar, L: left-hand scroll bar, T: toolbar, m: menu
+    set guioptions-=r
+    set guioptions-=L
+    set guioptions-=T
+    set guioptions-=m
+    " Toggle the menu:
+    nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+    set guifont=Fira\ Code\ 11
+    set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
+    set linespace=2
 else
-	set background=dark
+    set background=dark
 endif
 
 filetype plugin indent on
@@ -104,18 +105,18 @@ set statusline+=%c,%l/%L\ %P
 " We wrap this in a function to be able to enable/disable them on the fly,
 " such that it won't interfere with Goyo disabling the line numbers
 function! SetNumberToggle(enable)
-	if a:enable
-		set number relativenumber
-		augroup numbertoggle
-			autocmd!
-			autocmd BufEnter,FocusGained,InsertLeave * if &ft !~ '^nerdtree$' && &ft !~ '^help$' | set relativenumber | endif
-			autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-		augroup END
-	else
-		augroup numbertoggle
-			autocmd!
-		augroup END
-	endif
+    if a:enable
+        set number relativenumber
+        augroup numbertoggle
+            autocmd!
+            autocmd BufEnter,FocusGained,InsertLeave * if &ft !~ '^nerdtree$' && &ft !~ '^help$' | set relativenumber | endif
+            autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+        augroup END
+    else
+        augroup numbertoggle
+            autocmd!
+        augroup END
+    endif
 endfunction
 call SetNumberToggle(1)
 
@@ -161,8 +162,8 @@ set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 " Settings specific to web development
 augroup WebdevGroup
-	autocmd!
-	autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=0
+    autocmd!
+    autocmd FileType html,xhtml,php,eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=0
 augroup END
 
 " C Indentation (TODO: might revise in the future when it becomes necessery)
@@ -224,19 +225,19 @@ nnoremap <C-x><C-s> :w<cr>
 
 " Shifting lines up/down, featuring reindentation
 function ShiftAndRestoreCol(lDelta, mArg)
-	" This helper functions calls :move to shift a line into a given direction,
-	" restoring the cursor position after the movement,
-	" while also taking potential reindentation into account
-	let l:oldPos = getpos('.')
-	execute 'normal! ^'
-	let l:oldIndent = getpos('.')[2]
+    " This helper functions calls :move to shift a line into a given direction,
+    " restoring the cursor position after the movement,
+    " while also taking potential reindentation into account
+    let l:oldPos = getpos('.')
+    execute 'normal! ^'
+    let l:oldIndent = getpos('.')[2]
 
-	execute 'move .' . a:mArg
-	execute 'normal! =='
+    execute 'move .' . a:mArg
+    execute 'normal! =='
 
-	execute 'normal! ^'
-	let l:indentDiff = getpos('.')[2] - oldIndent
-	call setpos('.', [oldPos[0], oldPos[1] + a:lDelta, oldPos[2] + indentDiff, oldPos[3]])
+    execute 'normal! ^'
+    let l:indentDiff = getpos('.')[2] - oldIndent
+    call setpos('.', [oldPos[0], oldPos[1] + a:lDelta, oldPos[2] + indentDiff, oldPos[3]])
 endfunction
 "nnoremap <S-Up> :m .-2<cr>==
 "nnoremap <S-Down> :m.+1<cr>==
@@ -328,13 +329,13 @@ let NERDTreeMapOpenRecursively = 'T'
 "let NERDTreeMapJumbNextSibling = '<C-N>'
 "let NERDTreeMapJumbPrevSibling = '<C-R>'
 augroup NerdTreeGroup
-	autocmd!
-	" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
-	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
-	" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-	autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
-				\ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+    autocmd!
+    " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+    " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
+                \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 augroup END
 
 " Git commands
@@ -400,34 +401,34 @@ let g:fzf_colors =
 
 " Automatically adapt fzf's bat theme to dark/light backgrounds
 augroup update_bat_theme
-	autocmd!
-	autocmd VimEnter,ColorScheme * call ToggleBatEnvVar()
+    autocmd!
+    autocmd VimEnter,ColorScheme * call ToggleBatEnvVar()
 augroup end
 function ToggleBatEnvVar()
-	if (&background == 'light')
-		let $BAT_THEME='Monokai Extended Light'
-	else
-		let $BAT_THEME=''
-	endif
+    if (&background == 'light')
+        let $BAT_THEME='Monokai Extended Light'
+    else
+        let $BAT_THEME=''
+    endif
 endfunction
 " == }}
 
 " Goyo settings == {{
 function! s:goyo_enter()
-	call SetNumberToggle(0)
-	set spell noci nosi noai nolist noshowmode noshowcmd nonumber norelativenumber
-	set complete+=s
-	set bg=light
+    call SetNumberToggle(0)
+    set spell noci nosi noai nolist noshowmode noshowcmd nonumber norelativenumber
+    set complete+=s
+    set bg=light
 endfunction
 
 function! s:goyo_leave()
-	call SetNumberToggle(1)
+    call SetNumberToggle(1)
 endfunction
 
 augroup GoyoGroup
-	autocmd!
-	autocmd! User GoyoEnter nested call <SID>goyo_enter()
-	autocmd! User GoyoLeave nested call <SID>goyo_leave()
+    autocmd!
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 nmap <leader>p :Goyo<CR>
 " == }}
