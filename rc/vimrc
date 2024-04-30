@@ -1,7 +1,6 @@
 " Plugins and externally sourced files == {{
 call plug#begin('~/.vim/bundle')
 " Generally useful extensions
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'danro/rename.vim'
 Plug 'xolox/vim-misc'
@@ -121,8 +120,7 @@ endfunction
 call SetNumberToggle(1)
 
 " Always switch to the directory of the current file
-" autochdir breaks NERDTree, so we use autocmd instead
-autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif
+set autochdir
 
 " Leader settings
 let mapleader = ' '
@@ -308,36 +306,6 @@ noremap L T
 
 
 " Plugin configuration starts here
-" NERDTree
-nnoremap <M-t> :NERDTreeToggle .<cr>
-nnoremap <leader>t :NERDTreeToggle .<cr>
-nnoremap <M-T> :NERDTreeToggleVCS .<cr>
-nnoremap <leader>T :NERDTreeToggleVCS .<cr>
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeMapRefresh = 'l'
-let NERDTreeMapRefreshRoot = 'L'
-let NERDTreeMenuDown = 'n'
-let NERDTreeMenuUp = 'r'
-let NERDTreeMapJumpLastChild = 'N'
-let NERDTreeMapJumpFirstChild = 'R'
-let NERDTreeMapActivateNode = 't'
-let NERDTreeMapPreview = 'gt'
-let NERDTreeMapOpenRecursively = 'T'
-"let NERDTreeMapJumbNextSibling = '<C-N>'
-"let NERDTreeMapJumbPrevSibling = '<C-R>'
-augroup NerdTreeGroup
-    autocmd!
-    " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
-    " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-    autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | 
-                \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-augroup END
-
 " Git commands
 " for reference on remapping: https://github.com/tpope/vim-fugitive/issues/1080
 let g:nremap = {'r': 'b'}
